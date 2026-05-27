@@ -166,7 +166,7 @@
 
   /* TOGGLE */
   .toggle-row { display:flex; align-items:center; gap:8px; margin-top:0.55rem; }
-  .toggle-row label { font-size:11px; color:#666; cursor:pointer; }
+  .toggle-row label { font-size:15px; color:#666; cursor:pointer; }
   input[type=checkbox] { accent-color:#C1392B; cursor:pointer; width:16px; height:16px; }
 
   /* INSTALL BANNER (shows only when installable) */
@@ -177,14 +177,14 @@
     align-items: center; justify-content: space-between; gap: 10px;
   }
   #install-banner.visible { display: flex; }
-  #install-banner span { font-size: 11px; color: #888; }
+  #install-banner span { font-size: 15px; color: #888; }
 
   /* MOBILE */
   @media (max-width: 520px) {
-    .btn { font-size: 14px; }
+    .btn { font-size: 15px; }
     .die  { width:52px; height:52px; }
     .coin { width:60px; height:60px; font-size:22px; }
-    .card { width:60px; height:88px; font-size:13px; }
+    .card { width:60px; height:88px; font-size:15px; }
     .card-center { font-size:22px; }
   }
   @media (max-width: 360px) {
@@ -196,7 +196,7 @@
 
 <div id="install-banner">
   <span>Add to home screen for offline use</span>
-  <button class="btn btn-red" id="install-btn" style="min-height:36px;padding:6px 14px;font-size:11px;">Install</button>
+  <button class="btn btn-red" id="install-btn" style="min-height:36px;padding:6px 14px;font-size:15px;">Install</button>
 </div>
 
 <div class="header">
@@ -252,7 +252,7 @@
     <div class="section-title">Playing Cards — 52 card deck, no jokers</div>
     <div class="row" style="align-items:flex-start; gap:14px; flex-wrap:wrap;">
       <div id="last-card" class="card" style="align-items:center;justify-content:center;display:flex;">
-        <span style="font-size:11px;color:#444">—</span>
+        <span style="font-size:15px;color:#444">—</span>
       </div>
       <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
         <div>
@@ -262,7 +262,7 @@
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;">
           <button class="btn btn-red" id="draw-btn" onclick="drawCard()">Draw</button>
-          <button class="btn" onclick="reshuffleDeck()" style="font-size:11px;min-height:36px;padding:6px 14px;">↺ Reshuffle</button>
+          <button class="btn" onclick="reshuffleDeck()" style="font-size:15px;min-height:36px;padding:6px 14px;">↺ Reshuffle</button>
         </div>
       </div>
       <div style="min-width:0;flex:1;min-width:120px;">
@@ -373,7 +373,7 @@ function reshuffleDeck(){
   document.getElementById('deck-count').className='deck-num';
   const el=document.getElementById('last-card');
   el.className='card'; el.style='align-items:center;justify-content:center;display:flex;';
-  el.innerHTML='<span style="font-size:11px;color:#444">—</span>';
+  el.innerHTML='<span style="font-size:15px;color:#444">—</span>';
   document.getElementById('card-history').innerHTML='';
   document.getElementById('draw-btn').disabled=false;
 }
@@ -381,7 +381,7 @@ function reshuffleDeck(){
 // ── Tarot ─────────────────────────────────────────────
 function drawTarot(){
   const el=document.getElementById('tarot-result');
-  el.innerHTML='<span style="color:#555;font-size:12px">drawing...</span>';
+  el.innerHTML='<span style="color:#555;font-size:15px">drawing...</span>';
   setTimeout(()=>{
     const card=TAROT[Math.floor(Math.random()*TAROT.length)], rev=Math.random()<0.5;
     el.innerHTML=`<div class="tarot-name slide-in">${card}</div><div class="tarot-ori">${rev?'↓ Reversed':'↑ Upright'}</div>`;
