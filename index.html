@@ -28,7 +28,6 @@
     min-height: 100vh;
     min-height: 100dvh;
     padding: 1rem;
-    /* safe areas for notched phones */
     padding-top: max(1rem, env(safe-area-inset-top));
     padding-bottom: max(1rem, env(safe-area-inset-bottom));
     padding-left: max(1rem, env(safe-area-inset-left));
@@ -60,7 +59,7 @@
     padding: 0.9rem 1rem;
   }
   .section-title {
-    font-size: 15px; letter-spacing: 0.16em; color: #f5b111;
+    font-size: 15px; letter-spacing: 0.1em; color: #f5b111;
     text-transform: uppercase; margin-bottom: 0.7rem;
   }
 
@@ -92,11 +91,12 @@
   .coin {
     width: 64px; height: 64px;
     border-radius: 50%;
-    border: 1.5px solid #333;
+    border: 1.5px solid #444;
     display: flex; align-items: center; justify-content: center;
     font-size: 24px; font-weight: bold;
     background: #111;
     user-select: none; flex-shrink: 0;
+    color: #888;
   }
   .coin.lit  { border-color: #C1392B; color: #E74C3C; }
   .coin.flip { animation: coinflip 0.5s ease-in-out; }
@@ -105,12 +105,12 @@
     50% { transform: rotateY(90deg) scale(0.85); }
     100%{ transform: rotateY(0deg) scale(1); }
   }
-  .result-label { font-size: 15px; color: #E74C3C; margin-top: 5px; min-height: 16px; }
+  .result-label { font-size: 15px; color: #E74C3C; margin-top: 5px; min-height: 18px; }
 
   /* DIE */
   .die {
     width: 56px; height: 56px;
-    background: #111; border: 1px solid #333;
+    background: #111; border: 1px solid #444;
     border-radius: 9px;
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -131,7 +131,7 @@
   /* CARD */
   .card {
     width: 64px; height: 94px;
-    background: #111; border: 1px solid #333; border-radius: 8px;
+    background: #111; border: 1px solid #444; border-radius: 8px;
     display: flex; flex-direction: column; justify-content: space-between;
     padding: 5px 7px; font-size: 15px; font-weight: bold;
     position: relative; flex-shrink: 0;
@@ -150,26 +150,29 @@
 
   .deck-num     { font-size: 36px; font-weight: bold; line-height: 1; }
   .deck-num.low { color: #E74C3C; }
-  .deck-sub     { font-size: 15px; color: #555; margin-top: 2px; }
-  .lbl          { font-size: 15px; color: #555; margin-bottom: 4px; }
+  .deck-sub     { font-size: 13px; color: #999; margin-top: 2px; }
+  .lbl          { font-size: 13px; color: #999; margin-bottom: 4px; }
 
   .history { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
   .hist-chip {
-    font-size: 15px; padding: 3px 7px;
-    border-radius: 4px; background: #222; border: 1px solid #2e2e2e; color: #666;
+    font-size: 13px; padding: 3px 7px;
+    border-radius: 4px; background: #222; border: 1px solid #333; color: #aaa;
   }
-  .hist-chip.red { color: #c1392b; }
+  .hist-chip.red { color: #E74C3C; }
+  .hist-chip.gold { color: #f5b111; border-color: #3a2e00; }
 
   /* TAROT */
+  .tarot-result-current { margin-bottom: 0.5rem; }
   .tarot-name { font-size: 16px; font-weight: bold; letter-spacing: 0.02em; }
-  .tarot-ori  { font-size: 15px; color: #777; margin-top: 4px; }
+  .tarot-ori  { font-size: 13px; color: #aaa; margin-top: 3px; }
+  .tarot-btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
 
   /* TOGGLE */
   .toggle-row { display:flex; align-items:center; gap:8px; margin-top:0.55rem; }
-  .toggle-row label { font-size:15px; color:#666; cursor:pointer; }
+  .toggle-row label { font-size: 15px; color: #aaa; cursor:pointer; }
   input[type=checkbox] { accent-color:#C1392B; cursor:pointer; width:16px; height:16px; }
 
-  /* INSTALL BANNER (shows only when installable) */
+  /* INSTALL BANNER */
   #install-banner {
     display: none;
     background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
@@ -177,14 +180,14 @@
     align-items: center; justify-content: space-between; gap: 10px;
   }
   #install-banner.visible { display: flex; }
-  #install-banner span { font-size: 15px; color: #888; }
+  #install-banner span { font-size: 13px; color: #aaa; }
 
   /* MOBILE */
   @media (max-width: 520px) {
     .btn { font-size: 15px; }
     .die  { width:52px; height:52px; }
     .coin { width:60px; height:60px; font-size:22px; }
-    .card { width:60px; height:88px; font-size:15px; }
+    .card { width:60px; height:88px; font-size:14px; }
     .card-center { font-size:22px; }
   }
   @media (max-width: 360px) {
@@ -196,7 +199,7 @@
 
 <div id="install-banner">
   <span>Add to home screen for offline use</span>
-  <button class="btn btn-red" id="install-btn" style="min-height:36px;padding:6px 14px;font-size:15px;">Install</button>
+  <button class="btn btn-red" id="install-btn" style="min-height:36px;padding:6px 14px;font-size:13px;">Install</button>
 </div>
 
 <div class="header">
@@ -252,7 +255,7 @@
     <div class="section-title">Playing Cards — 52 card deck, no jokers</div>
     <div class="row" style="align-items:flex-start; gap:14px; flex-wrap:wrap;">
       <div id="last-card" class="card" style="align-items:center;justify-content:center;display:flex;">
-        <span style="font-size:15px;color:#444">—</span>
+        <span style="font-size:13px;color:#666">—</span>
       </div>
       <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap;">
         <div>
@@ -262,7 +265,7 @@
         </div>
         <div style="display:flex;flex-direction:column;gap:8px;">
           <button class="btn btn-red" id="draw-btn" onclick="drawCard()">Draw</button>
-          <button class="btn" onclick="reshuffleDeck()" style="font-size:15px;min-height:36px;padding:6px 14px;">↺ Reshuffle</button>
+          <button class="btn" onclick="reshuffleDeck()" style="font-size:13px;min-height:36px;padding:6px 14px;">↺ Reshuffle</button>
         </div>
       </div>
       <div style="min-width:0;flex:1;min-width:120px;">
@@ -275,9 +278,15 @@
   <!-- TAROT -->
   <div class="section">
     <div class="section-title">Tarot — Major Arcana</div>
-    <div class="row" style="align-items:flex-start; gap:14px;">
-      <button class="btn btn-red" onclick="drawTarot()">Draw</button>
-      <div id="tarot-result" style="min-height:44px;display:flex;flex-direction:column;justify-content:center;"></div>
+    <div class="tarot-btn-row" style="margin-bottom:0.65rem;">
+      <button class="btn btn-red" onclick="drawTarot(1)">Draw 1</button>
+      <button class="btn btn-red" onclick="drawTarot(3)">Draw 3</button>
+      <button class="btn" onclick="clearTarot()" style="font-size:13px;min-height:36px;padding:6px 14px;">✕ Clear</button>
+    </div>
+    <div id="tarot-current"></div>
+    <div id="tarot-history-wrap" style="display:none; margin-top:0.65rem;">
+      <div class="lbl">History</div>
+      <div class="history" id="tarot-history"></div>
     </div>
   </div>
 
@@ -306,7 +315,7 @@ const TAROT = [
 ];
 const POS = [[0,0],[0,1],[0,2],[1,0],[1,1],[1,2],[2,0],[2,1],[2,2]];
 
-let deck=[], history=[], twoDice=false;
+let deck=[], cardHistory=[], tarotHistory=[], twoDice=false;
 
 function mkDeck(){ const d=[]; for(const s of SUITS) for(const r of RANKS) d.push({s,r}); return d; }
 function shuffle(a){ a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
@@ -358,39 +367,70 @@ function toggleDice(on){
 // ── Cards ─────────────────────────────────────────────
 function drawCard(){
   if(!deck.length) return;
-  const card=deck.shift(); history.unshift(card); if(history.length>10) history.pop();
+  const card=deck.shift(); cardHistory.unshift(card); if(cardHistory.length>10) cardHistory.pop();
   const el=document.getElementById('last-card'), red=RED_S.has(card.s);
   el.className='card slide-in '+(red?'red':'black'); el.style='';
   el.innerHTML=`<div style="line-height:1.1">${card.r}<br>${card.s}</div><div class="card-center">${card.s}</div><div style="line-height:1.1;transform:rotate(180deg)">${card.r}<br>${card.s}</div>`;
   const cnt=document.getElementById('deck-count');
   cnt.textContent=deck.length; cnt.className='deck-num'+(deck.length<10?' low':'');
   document.getElementById('draw-btn').disabled=!deck.length;
-  document.getElementById('card-history').innerHTML=history.map(c=>`<span class="hist-chip ${RED_S.has(c.s)?'red':''}">${c.r}${c.s}</span>`).join('');
+  document.getElementById('card-history').innerHTML=cardHistory.map(c=>`<span class="hist-chip ${RED_S.has(c.s)?'red':''}">${c.r}${c.s}</span>`).join('');
 }
 function reshuffleDeck(){
-  deck=shuffle(mkDeck()); history=[];
+  deck=shuffle(mkDeck()); cardHistory=[];
   document.getElementById('deck-count').textContent=52;
   document.getElementById('deck-count').className='deck-num';
   const el=document.getElementById('last-card');
   el.className='card'; el.style='align-items:center;justify-content:center;display:flex;';
-  el.innerHTML='<span style="font-size:15px;color:#444">—</span>';
+  el.innerHTML='<span style="font-size:13px;color:#666">—</span>';
   document.getElementById('card-history').innerHTML='';
   document.getElementById('draw-btn').disabled=false;
 }
 
 // ── Tarot ─────────────────────────────────────────────
-function drawTarot(){
-  const el=document.getElementById('tarot-result');
-  el.innerHTML='<span style="color:#555;font-size:15px">drawing...</span>';
-  setTimeout(()=>{
-    const card=TAROT[Math.floor(Math.random()*TAROT.length)], rev=Math.random()<0.5;
-    el.innerHTML=`<div class="tarot-name slide-in">${card}</div><div class="tarot-ori">${rev?'↓ Reversed':'↑ Upright'}</div>`;
-  },380);
+function drawTarot(n) {
+  const cur = document.getElementById('tarot-current');
+  const drawn = [];
+  for(let i=0;i<n;i++){
+    const card = TAROT[Math.floor(Math.random()*TAROT.length)];
+    const rev  = Math.random()<0.5;
+    drawn.push({card, rev});
+    tarotHistory.unshift({card, rev});
+  }
+  if(tarotHistory.length>12) tarotHistory.length=12;
+
+  cur.innerHTML = drawn.map((d,i)=>`
+    <div class="tarot-result-current slide-in" style="padding:6px 0; ${i>0?'border-top:1px solid #222;':''}">
+      <div class="tarot-name">${d.card}</div>
+      <div class="tarot-ori">${d.rev?'↓ Reversed':'↑ Upright'}</div>
+    </div>
+  `).join('');
+
+  renderTarotHistory();
+}
+
+function renderTarotHistory(){
+  const wrap = document.getElementById('tarot-history-wrap');
+  const hist = document.getElementById('tarot-history');
+  if(!tarotHistory.length){ wrap.style.display='none'; return; }
+  wrap.style.display='block';
+  // Show short names: trim the roman numeral prefix for compactness
+  hist.innerHTML = tarotHistory.map(d=>{
+    const short = d.card.replace(/^[IVXLC\d]+ — /,'');
+    return `<span class="hist-chip gold" title="${d.card} — ${d.rev?'Reversed':'Upright'}">${short} ${d.rev?'↓':'↑'}</span>`;
+  }).join('');
+}
+
+function clearTarot(){
+  document.getElementById('tarot-current').innerHTML='';
+  tarotHistory=[];
+  document.getElementById('tarot-history-wrap').style.display='none';
+  document.getElementById('tarot-history').innerHTML='';
 }
 
 // ── Service Worker ────────────────────────────────────
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').catch(() => {});
+  navigator.serviceWorker.register('/ecco_field_kit/sw.js').catch(() => {});
 }
 
 // ── Install prompt (Android/Chrome) ──────────────────
